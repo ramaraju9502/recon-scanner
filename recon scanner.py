@@ -2,7 +2,6 @@ import socket
 import subprocess
 import whois
 
-# ---------------- IP Scanner ----------------
 def ip_scanner():
     ip = input("Enter IP address: ")
     try:
@@ -11,7 +10,6 @@ def ip_scanner():
     except:
         print(f"[-] Host {ip} is not reachable")
 
-# ---------------- Port Scanner ----------------
 def port_scanner():
     target = input("Enter target IP: ")
     ports = input("Enter ports (space separated): ").split()
@@ -26,7 +24,6 @@ def port_scanner():
             print(f"[-] Port {port} is CLOSED")
         s.close()
 
-# ---------------- Subdomain Checker ----------------
 def subdomain_checker():
     domain = input("Enter domain (example.com): ")
     subs = input("Enter subdomains (space separated): ").split()
@@ -39,22 +36,19 @@ def subdomain_checker():
         except:
             pass
 
-# ---------------- WHOIS Lookup ----------------
 def whois_lookup():
     domain = input("Enter domain: ")
     info = whois.whois(domain)
     print(info)
 
-# ---------------- DNS Lookup ----------------
 def dns_lookup():
     domain = input("Enter domain: ")
     subprocess.call(["nslookup", domain])
 
-# ---------------- Main Menu ----------------
 def main():
     while True:
         print("""
-======== ReconScanner ========
+        
 1. IP Scanner
 2. Port Scanner
 3. Subdomain Checker
@@ -81,3 +75,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
